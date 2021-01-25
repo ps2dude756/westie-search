@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Westie Search</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dance + .dance {
+            border-top: 1px solid
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+      {% for dance in data %}
+      <div class="dance">
+        <a href="{{ dance.url }}">
+            <div>
+                <div>{{ dance.convention }} {{ dance.year }} {{ dance.format }}</div>
+                <div>Lead: {{ dance.leads }}</div>
+                <div>Follow: {{ dance.follows }}</div>
+                <ol>
+                    {% for song in dance.songs %}
+                        <li>{{ song }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </a>
+        </div>
+      {% endfor %}
+      <footer class="footer">
+        <p>© 2021</p>
+      </footer>
+    </div>
+  </body>
+</html>
